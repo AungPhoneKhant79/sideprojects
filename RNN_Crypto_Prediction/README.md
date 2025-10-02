@@ -1,1 +1,27 @@
-
+- 📈 ETH Price Prediction (LSTM)
+- **Project**:
+- Predict Ethereum’s closing price using LSTM (Long Short-Term Memory), a type of RNN for sequential/time-series data
+- 
+- **Dataset**:
+- ETH/USDT historical data (~1500 days), features = Open, High, Low, Close, Volume, train/test split = 70/30
+- 
+- **Method**:
+- Scale data to [-1, 1]
+- Sliding window: past 60 days → predict next day
+- Model: LSTM + Dense output layer
+- Loss: MSE, Optimizer: Adam
+- 
+- **Results**:
+- Best setup: 60-day window + 128 units
+- Test MSE: ~0.00137
+- Test MAE: ~0.0283
+- 
+- **Learnings**:
+- Shorter windows (60 days) worked better than longer (120 days = noisy)
+- More units (128) improved accuracy, too many (160+) began overfitting
+- LSTMs capture short + long-term price patterns effectively
+- 
+- **Next Steps**:
+- Add Dropout to reduce overfitting
+- Compare with GRU and simple RNN
+- Plot predictions vs actual prices for visualization
